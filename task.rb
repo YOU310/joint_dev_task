@@ -17,7 +17,9 @@ def q2
 
   # 以下に回答を記載
 
-  array = array1 += array2
+  # array = array1 += array2 → array1 += array2 と同義でarrayに代入する必要なし
+
+  array = array1 + array2
   p array
 
 end
@@ -36,7 +38,10 @@ def q4
 
   # 以下に回答を記載
 
-  sports.delete(nil)
+  # sports.delete(nil)
+  # ↓nilを削除するメソッド
+
+  sports.compact!
 
   # 以下は変更しないで下さい
   p sports
@@ -48,12 +53,23 @@ def q5
 
   # 以下に回答を記載
 
+  # p array1.empty?
+  # p array2.empty?
+
 end
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
+
+  # numbers2 = []
+
+  # numbers1.each do |num|
+  #   numbers2 << num * 10
+  # end
+  
+  # p numbers2
 
 end
 
