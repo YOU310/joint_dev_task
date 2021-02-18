@@ -53,8 +53,8 @@ def q5
 
   # 以下に回答を記載
 
-  # p array1.empty?
-  # p array2.empty?
+  p array1.empty?
+  p array2.empty?
 
 end
 
@@ -63,13 +63,13 @@ def q6
 
   # 以下に回答を記載
 
-  # numbers2 = []
+  numbers2 = []
 
-  # numbers1.each do |num|
-  #   numbers2 << num * 10
-  # end
+  numbers1.each do |num|
+    numbers2 << num * 10
+  end
   
-  # p numbers2
+  p numbers2
 
 end
 
@@ -77,6 +77,8 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
+
+  array.map!{|s| s.to_i}
 
   # 以下は変更しないで下さい
   p array
@@ -86,6 +88,13 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
+
+  upper_case_programming_languages = []
+
+  programming_languages.each do |lang|
+    lang.capitalize!
+    upper_case_programming_languages << lang.upcase
+  end
 
   # 以下は変更しないで下さい
   p programming_languages
