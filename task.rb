@@ -63,12 +63,15 @@ def q6
 
   # 以下に回答を記載
 
-  numbers2 = []
+  # numbers2 = []
 
-  numbers1.each do |num|
-    numbers2 << num * 10
-  end
+  # numbers1.each do |num|
+  #   numbers2 << num * 10
+  # end
+  # ↓mapメソッドを使って簡潔に
   
+  numbers2 = numbers1.map{|num| num * 10}
+
   p numbers2
 
 end
@@ -78,7 +81,10 @@ def q7
 
   # 以下に回答を記載
 
-  array.map!{|s| s.to_i}
+  # array.map!{|s| s.to_i}
+  # ↓(&:)を使って更に簡潔に
+
+  array.map!(&:to_i)
 
   # 以下は変更しないで下さい
   p array
@@ -89,12 +95,16 @@ def q8
 
   # 以下に回答を記載
 
-  upper_case_programming_languages = []
+  # upper_case_programming_languages = []
 
-  programming_languages.each do |lang|
-    lang.capitalize!
-    upper_case_programming_languages << lang.upcase
-  end
+  # programming_languages.each do |lang|
+  #   lang.capitalize!
+  #   upper_case_programming_languages << lang.upcase
+  # end
+  # ↓map(&:)を使って簡潔に
+
+  programming_languages.map(&:capitalize)
+  upper_case_programming_languages = programming_languages.map(&:upcase)
 
   # 以下は変更しないで下さい
   p programming_languages
@@ -106,12 +116,22 @@ def q9
 
   # 以下に回答を記載
 
+  names.each.with_index(1) do |name,i|
+    puts "会員No.#{i} #{name}さん"
+  end
+
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+
+  if foods.include?("うに")
+    puts "好物です"
+  else
+    puts "まぁまぁ好きです"
+  end
 
 end
 
@@ -120,12 +140,20 @@ def q11
 
   # 以下に回答を記載
 
+  sports.flatten!.uniq!
+
+  sports.each.with_index(1) do |sport,i|
+    puts "No#{i} #{sport}"
+  end
+
 end
 
 def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+
+  puts data.dig(:user, :name)
 
 end
 
