@@ -6,6 +6,9 @@ def q1
 
   # 以下に回答を記載
 
+  names << "斎藤"
+  p names
+
 end
 
 def q2
@@ -14,6 +17,9 @@ def q2
 
   # 以下に回答を記載
 
+  array = array1 += array2
+  p array
+
 end
 
 def q3
@@ -21,12 +27,16 @@ def q3
 
   # 以下に回答を記載
 
+  p numbers.count(3)
+
 end
 
 def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
+
+  sports.delete(nil)
 
   # 以下は変更しないで下さい
   p sports
