@@ -103,7 +103,7 @@ def q8
   # end
   # ↓map(&:)を使って簡潔に
 
-  programming_languages.map(&:capitalize)
+  programming_languages.map!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
 
   # 以下は変更しないで下さい
@@ -127,10 +127,19 @@ def q10
 
   # 以下に回答を記載
 
-  if foods.include?("うに")
-    puts "好物です"
-  else
-    puts "まぁまぁ好きです"
+  # if foods.include?("うに")
+  #   puts "好物です"
+  # else
+  #   puts "まぁまぁ好きです"
+  # end
+  # ↓配列の要素１つ１つに対して回答を出力
+
+  foods.each do |food|
+    if food.include?("うに") 
+      puts "#{food}:好物です"
+    else
+      puts "#{food}:まぁまぁ好きです"
+    end
   end
 
 end
@@ -163,12 +172,21 @@ def q13
 
   # 以下に回答を記載
 
+  user_data.merge!(update_data)
+  p user_data
+
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
+
+  data_key = []
+
+  data.each do |key|
+    data_key << data[:key]
+  end
 
 end
 
