@@ -162,7 +162,8 @@ def q12
 
   # 以下に回答を記載
 
-  puts data.dig(:user, :name)
+  puts data[:user][:name]
+  # puts data.dig(:user, :name) ←こっちでも出力可
 
 end
 
@@ -181,12 +182,8 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
-  data_key = []
-
-  data.each do |key|
-    data_key << data[:key]
-  end
+  
+  p data.keys
 
 end
 
@@ -196,7 +193,20 @@ def q15
 
   # 以下に回答を記載
 
+  if data1.has_key?(:age)
+    puts "OK"
+  else
+    puts "NG"
+  end
+
+  if data2.has_key?(:age)
+    puts "ok"
+  else
+    puts "NG"
+  end
+
 end
+
 
 def q16
   users = [
@@ -207,6 +217,10 @@ def q16
   ]
 
   # 以下に回答を記載
+
+  users.each do |user|
+    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
+  end
 
 end
 
