@@ -182,7 +182,7 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-  
+
   p data.keys
 
 end
@@ -193,17 +193,23 @@ def q15
 
   # 以下に回答を記載
 
-  if data1.has_key?(:age)
-    puts "OK"
-  else
-    puts "NG"
-  end
+  # if data1.has_key?(:age)
+  #   puts "OK"
+  # else
+  #   puts "NG"
+  # end
 
-  if data2.has_key?(:age)
-    puts "ok"
-  else
-    puts "NG"
-  end
+  # if data2.has_key?(:age)
+  #   puts "ok"
+  # else
+  #   puts "NG"
+  # end
+
+  # ↓三項演算子を使って簡潔に
+
+  puts data1.has_key?(:age) ? "OK" : "NG"
+
+  puts data2.has_key?(:age) ? "OK" : "NG"
 
 end
 
