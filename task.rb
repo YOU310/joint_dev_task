@@ -232,6 +232,19 @@ end
 
 class UserQ17
   # 以下に回答を記載
+  attr_accessor :name, :age, :gender
+
+  def initialize(name:, age:, gender:)
+    @name = name
+    @age = age
+    @gender = gender
+  end
+
+  def info
+    puts "名前:#{@name}"
+    puts "年齢:#{@age}"
+    puts "性別:#{@gender}"
+  end
 
 end
 
@@ -247,6 +260,19 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  attr_accessor :name, :age
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
+
+  def introduce
+    if @age > 10
+      puts "こんにちは、#{@name}と申します。よろしくお願いいたします。"
+    else
+      puts "はいさいまいど〜、#{@name}です!!!"
+    end
+  end
 
 end
 
@@ -265,6 +291,7 @@ class Item
   def initialize(name)
     @name = name
   end
+
 end
 
 def q19
