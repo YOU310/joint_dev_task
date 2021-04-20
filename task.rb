@@ -249,6 +249,7 @@ class UserQ17
       年齢:#{@age}
       性別:#{@gender}
     TEXT
+    # ヒアドキュメントを使用
   end
 
 end
@@ -276,11 +277,11 @@ class UserQ18
 
   def introduce
     if @age > 10
-      print "こんにちは、#{@name}と申します。よろしくお願いいたします。"
+      "こんにちは、#{@name}と申します。よろしくお願いいたします。"
     else
-      print "はいさいまいど〜、#{@name}です!!!"
+      "はいさいまいど〜、#{@name}です!!!"
     end
-    # 改行不要のため、printで出力
+    # ↓puts user1.introduceなので"〜〜"のみでok
   end
 
 end
@@ -314,10 +315,39 @@ end
 class UserQ20
   # 以下に回答を記載
 
+  attr_accessor :name, :age
+
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
+
 end
 
 class Zoo
   # 以下に回答を記載
+
+  def initialize(name:, entry_fee:)
+    # @zoo_name不要ですが、機能拡張も視野に入れて一応インスタンスしておきました
+    @zoo_name = name
+    @infant = entry_fee[:infant]
+    @children = entry_fee[:children]
+    @adult = entry_fee[:adult]
+    @senior = entry_fee[:senior]
+  end
+
+  def info_entry_fee(users)
+    case users.age
+    when 0..5
+      puts "#{users.name}さんの入場料金は#{@infant}円です"
+    when 6..12
+      puts "#{users.name}さんの入場料金は#{@children}円です"
+    when 13..64
+      puts "#{users.name}さんの入場料金は#{@adult}円です"
+    when 65..120
+      puts "#{users.name}さんの入場料金は#{@senior}円です"
+    end
+  end
 
 end
 
@@ -332,7 +362,7 @@ def q20
     UserQ20.new(name: "あじー", age: 32),
     UserQ20.new(name: "ぎん", age: 108)
   ]
-
+  
   users.each do |user|
     zoo.info_entry_fee(user)
   end
