@@ -297,8 +297,10 @@ end
 
 class Item
   # 以下を修正して下さい
-  attr_accessor :name
+  # attr_accessor :name
   # クラス外で.nameを使うため定義
+  attr_reader :name
+  # 読み出しのみ利用なのでこちらで
 
   def initialize(name:)
     @name = name
@@ -315,7 +317,9 @@ end
 class UserQ20
   # 以下に回答を記載
 
-  attr_accessor :name, :age
+  # attr_accessor :name, :age
+  attr_reader :name, :age
+  # 読み出しのみ利用なのでこちらで
 
   def initialize(name:, age:)
     @name = name
@@ -326,30 +330,36 @@ end
 
 class Zoo
   # 以下に回答を記載
-
+  
   def initialize(name:, entry_fee:)
     # @zoo_name不要ですが、機能拡張も視野に入れて一応インスタンスしておきました
     @zoo_name = name
-    @infant = entry_fee[:infant]
-    @children = entry_fee[:children]
-    @adult = entry_fee[:adult]
-    @senior = entry_fee[:senior]
+    # @infant = entry_fee[:infant]
+    # @children = entry_fee[:children]
+    # @adult = entry_fee[:adult]
+    # @senior = entry_fee[:senior]
+    @entry_fee = entry_fee
+    # 出力部分でそれぞれに分ける
   end
 
   def info_entry_fee(users)
     case users.age
     when 0..5
-      puts "#{users.name}さんの入場料金は#{@infant}円です"
+      puts "#{users.name}さんの入場料金は#{@entry_fee[:infant]}円です"
     when 6..12
-      puts "#{users.name}さんの入場料金は#{@children}円です"
+      puts "#{users.name}さんの入場料金は#{@entry_fee[:children]}円です"
     when 13..64
-      puts "#{users.name}さんの入場料金は#{@adult}円です"
+      puts "#{users.name}さんの入場料金は#{@entry_fee[:adult]}円です"
     when 65..120
-      puts "#{users.name}さんの入場料金は#{@senior}円です"
+      puts "#{users.name}さんの入場料金は#{@entry_fee[:senior]}円です"
     end
   end
 
 end
+
+# メモ書き
+#p @entry_fee {:infant=>0, :children=>400, :adult=>800, :senior=>500}
+#p @users <UserQ20:0x00007f9a30902f78 @name="たま", @age=3>
 
 
 def q20
