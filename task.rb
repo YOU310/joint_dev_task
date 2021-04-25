@@ -343,16 +343,27 @@ class Zoo
   end
 
   def info_entry_fee(users)
-    case users.age
+    # caseの返り値を任意変数に格納
+    fee = case users.age
+    
+    # 場合分の中でputsは記述せずに、返り値を出力しておく
     when 0..5
-      puts "#{users.name}さんの入場料金は#{@entry_fee[:infant]}円です"
+      # puts "#{users.name}さんの入場料金は#{@entry_fee[:infant]}円です"
+      @entry_fee[:infant]
     when 6..12
-      puts "#{users.name}さんの入場料金は#{@entry_fee[:children]}円です"
+      # puts "#{users.name}さんの入場料金は#{@entry_fee[:children]}円です"
+      @entry_fee[:children]
     when 13..64
-      puts "#{users.name}さんの入場料金は#{@entry_fee[:adult]}円です"
+      # puts "#{users.name}さんの入場料金は#{@entry_fee[:adult]}円です"
+      @entry_fee[:adult]
     when 65..120
-      puts "#{users.name}さんの入場料金は#{@entry_fee[:senior]}円です"
+      # puts "#{users.name}さんの入場料金は#{@entry_fee[:senior]}円です"
+      @entry_fee[:senior]
     end
+
+    # 最後にnameと返り値を使ってputsで出力
+    puts "#{users.name}さんの入場料金は#{fee}円です"
+
   end
 
 end
